@@ -1,3 +1,4 @@
+Project,Snapshot,Sha,File,Line,Is_Buggy
 bitcoin,2011-05-23,8968bf2e36ca17d18ffe4c333d349cd7557c058b,core/src/util.cpp,528,0
 bitcoin,2011-02-22,d787e00a3bb47c513566a8f9baef5b6b3c6d93b4,ui.cpp,2486,0
 bitcoin,2013-08-10,c7fa1a358620a785af50c56cc02284990f63c608,src/netbase.cpp,435,0

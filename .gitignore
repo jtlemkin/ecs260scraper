@@ -1,8 +1,14 @@
 accumulo
 ambari
 hadoop
+jackrabbit
+lucene-solr
+oozie
+bitcoin
+bug_data
 jcr
 lucene
-oozie
 .idea
 *.csv
+.DS_Store
+.idea

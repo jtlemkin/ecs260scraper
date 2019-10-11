@@ -5,6 +5,12 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/accumulo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ambari" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bitcoin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hadoop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jackrabbit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jcr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lucene" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lucene-solr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/oozie" vcs="Git" />
   </component>
 </project>
