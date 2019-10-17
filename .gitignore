@@ -12,3 +12,4 @@ lucene
 *.csv
 .DS_Store
 .idea
+*.xml
