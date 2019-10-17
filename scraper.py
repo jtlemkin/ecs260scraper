@@ -24,7 +24,7 @@ def want_to_skip(line):
     return not test or test[:2] == "/*" or test[0] == '*' or test[:7] == "package" or test[:6] == "import" or test[0] == "@" or test[:2] == "//"
 
 
-def prem_task(project, repo, commit, sha):
+def prem_task(project, repo, commit, sha, csv_writer):
     date = time.strftime("%Y-%m-%d", time.gmtime(commit.commit_time))
 
     try:
@@ -49,7 +49,7 @@ def prem_task(project, repo, commit, sha):
                     if want_to_skip(line.content):
                         continue
 
-                    return [project, date, sha, old_file, line_no]
+                    csv_writer.writerow([project, date, sha, old_file, line_no])
 
 
 # This function iterates over the commits in a csv file and does some task on it which can be written to an
@@ -73,16 +73,13 @@ def scrape(project, pos_of_sha, inputf, outputf, task):
                 for sha in parse_shas(bug_inducing_shas):
                     sha = sha.lstrip()
 
-                try:
-                    commit = repo.revparse_single(sha)
-                except Exception:
-                    print("Skipping commit", sha, "in project", project)
-                    continue
+                    try:
+                        commit = repo.revparse_single(sha)
+                    except Exception:
+                        print("Skipping commit", sha, "in project", project)
+                        continue
 
-                output_row = task(project, repo, commit, sha)
-
-                if output_row:
-                    writeCSV.writerow(output_row)
+                    task(project, repo, commit, sha, writeCSV)
 
 
 def scrape_szz_labelled(project):
@@ -97,6 +94,7 @@ def scrape_dev_labelled(project):
     output_csv_path = "_bugs.csv"
 
     scrape(project, 2, input_csv_path, output_csv_path, prem_task)
+
 
 for project in ["accumulo", "ambari", "hadoop", "lucene", "oozie"]:
     scrape_dev_labelled(project)
